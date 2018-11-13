@@ -9,7 +9,7 @@ set -x
 ssh $FIRSTMASTER ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/adhoc/uninstall.yml
 
 date
-ansible-playbook /root/playbooks/uninstall/uninstall_devices.yml
+ansible-playbook uninstall/uninstall_devices.yml
 
 date
 ansible nodes -m shell -a 'shutdown -r 0'
@@ -38,10 +38,10 @@ done
 
 date
 set -x
-ansible-playbook /root/playbooks/uninstall/uninstall_artifacts.yml
+ansible-playbook uninstall_artifacts.yml
 
 date
-ansible-playbook /root/playbooks/openshift-node-prep/config.yml
+ansible-playbook openshift-node-prep/config.yml
 
 date
 ssh $FIRSTMASTER ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/prerequisites.yml
