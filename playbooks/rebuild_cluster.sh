@@ -38,7 +38,7 @@ done
 
 date
 set -x
-ansible-playbook uninstall_artifacts.yml
+ansible-playbook uninstall/uninstall_artifacts.yml
 
 date
 ansible-playbook openshift-node-prep/config.yml
