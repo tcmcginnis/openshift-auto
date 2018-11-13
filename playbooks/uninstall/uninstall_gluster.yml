@@ -1,0 +1,6 @@
+# Remove Gluster devices and artifacts
+
+- import_playbook: uninstall_gluster_devices.yml
+
+- import_playbook: uninstall_gluster_artifacts.yml
+

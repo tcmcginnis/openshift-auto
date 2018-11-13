@@ -1,0 +1,7 @@
+- hosts: nodes
+  user: root
+  tasks:
+
+  - name: Dump all vars
+    action: template src=dumpall.j2 dest=/tmp/ansible.all
+

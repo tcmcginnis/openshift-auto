@@ -1,0 +1,10 @@
+- hosts: nodes
+  user: root
+  tasks:
+
+  - name: Restore the /etc/resolv.conf file
+    template:
+      src: ./resolv.conf.template
+      dest: /etc/resolv.conf.ANSIBLE
+    when: domainsearch is defined
+

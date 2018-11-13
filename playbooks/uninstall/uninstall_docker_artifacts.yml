@@ -1,0 +1,21 @@
+- hosts: nodes
+  user: root
+  tasks:
+
+  - name: Disable Docker
+    systemd:
+      name: docker
+      state: stopped
+      enabled: false
+
+  - name: Remove Docker artifacts
+    file:
+      path: '{{ item }}'
+      state: absent
+      force: yes
+    with_items:
+      - /etc/sysconfig/docker-storage
+      - /var/lib/docker
+      - /var/lib/dockershim
+      - /var/lib/containers
+

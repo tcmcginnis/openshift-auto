@@ -1,0 +1,21 @@
+- hosts: nodes
+  user: root
+  tasks:
+
+  - name: Disable Docker
+    systemd:
+      name: docker
+      state: stopped
+      enabled: false
+
+  - name: Remove Docker storage volume group
+    lvg:
+      vg: docker-vg
+      state: absent
+      force: yes
+
+  - name: Wipe the signature off the Docker disk device
+    command: 'dd if=/dev/zero of={{ docker_storage_device }} count=1M'
+    when: docker_storage_device != ""
+    register: out
+

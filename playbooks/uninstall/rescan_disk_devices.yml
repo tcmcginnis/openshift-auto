@@ -1,0 +1,10 @@
+- hosts: nodes
+  user: root
+  tasks:
+
+  - name: Run partprobe
+    shell: "partprobe"
+
+  - name: Rescan PVs
+    shell: "pvscan --cache"
+

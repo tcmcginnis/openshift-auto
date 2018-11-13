@@ -1,0 +1,9 @@
+- import_playbook: docker-service-enable.yml
+
+- hosts: nodes
+  user: root
+  tasks:
+
+   - name: Load Docker images for Openshift
+     shell: /images/imageload.sh
+

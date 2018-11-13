@@ -1,0 +1,9 @@
+# Main Openshift node cleanup playbook
+#
+#     To be run after the Openshift uninstall playbooks
+#
+
+- import_playbook: uninstall_docker_artifacts.yml
+
+- import_playbook: uninstall_gluster_artifacts.yml
+

@@ -1,0 +1,58 @@
+# OpenShift
+registry.access.redhat.com/openshift3/ose-ansible:<tag>
+registry.access.redhat.com/openshift3/ose-cluster-capacity:<tag>
+registry.access.redhat.com/openshift3/ose-deployer:<tag>
+registry.access.redhat.com/openshift3/ose-docker-builder:<tag>
+registry.access.redhat.com/openshift3/ose-docker-registry:<tag>
+registry.access.redhat.com/openshift3/ose-egress-http-proxy:<tag>
+registry.access.redhat.com/openshift3/ose-egress-router:<tag>
+registry.access.redhat.com/openshift3/ose-f5-router:<tag>
+registry.access.redhat.com/openshift3/ose-haproxy-router:<tag>
+registry.access.redhat.com/openshift3/ose-keepalived-ipfailover:<tag>
+registry.access.redhat.com/openshift3/ose-pod:<tag>
+registry.access.redhat.com/openshift3/ose-sti-builder:<tag>
+registry.access.redhat.com/openshift3/ose:<tag>
+registry.access.redhat.com/openshift3/container-engine:<tag>
+registry.access.redhat.com/openshift3/efs-provisioner:<tag>
+registry.access.redhat.com/openshift3/node:<tag>
+registry.access.redhat.com/openshift3/openvswitch:<tag>
+registry.access.redhat.com/rhel7/etcd:<tag>
+#
+# Containerized components
+registry.access.redhat.com/openshift3/logging-auth-proxy:<tag>
+registry.access.redhat.com/openshift3/logging-curator:<tag>
+registry.access.redhat.com/openshift3/logging-deployer:<tag>
+registry.access.redhat.com/openshift3/logging-elasticsearch:<tag>
+registry.access.redhat.com/openshift3/logging-fluentd:<tag>
+registry.access.redhat.com/openshift3/logging-kibana:<tag>
+registry.access.redhat.com/openshift3/metrics-cassandra:<tag>
+registry.access.redhat.com/openshift3/metrics-deployer:<tag>
+registry.access.redhat.com/openshift3/metrics-hawkular-metrics:<tag>
+registry.access.redhat.com/openshift3/metrics-hawkular-openshift-agent:<tag>
+registry.access.redhat.com/openshift3/metrics-heapster:<tag>
+registry.access.redhat.com/openshift3/prometheus:<tag>
+registry.access.redhat.com/openshift3/prometheus-node-exporter:<tag>
+registry.access.redhat.com/openshift3/prometheus-alertmanager:<tag>
+registry.access.redhat.com/openshift3/prometheus-alert-buffer:<tag>
+#
+# OpenShift Ansible broker
+registry.access.redhat.com/openshift3/ose-service-catalog:<tag>
+registry.access.redhat.com/openshift3/ose-ansible-service-broker:<tag>
+registry.access.redhat.com/openshift3/mediawiki-apb:<tag>
+registry.access.redhat.com/openshift3/postgresql-apb:<tag>
+#
+# registry-console
+registry.access.redhat.com/openshift3/registry-console:<tag>
+# Latest for 3.9.43
+registry.access.redhat.com/openshift3/ose-web-console:<tag>
+registry.access.redhat.com/openshift3/ose-template-service-broker:<tag>
+#
+# Gluster
+registry.access.redhat.com/rhgs3/rhgs-gluster-block-prov-rhel7:<tag>
+registry.access.redhat.com/rhgs3/rhgs-s3-server-rhel7:<tag>
+registry.access.redhat.com/rhgs3/rhgs-server-rhel7:<tag>
+registry.access.redhat.com/rhgs3/rhgs-volmanager-rhel7:<tag>
+#
+# Additional images for use later
+registry.access.redhat.com/openshift3/jenkins-2-rhel7
+registry.centos.org/centos:latest

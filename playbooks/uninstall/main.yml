@@ -1,0 +1,11 @@
+# Main Openshift node cleanup playbook
+#
+#     To be run after the Openshift uninstall playbooks
+#
+
+- import_playbook: uninstall_devices.yml
+
+- import_playbook: uninstall_artifacts.yml
+
+- import_playbook: rescan_disk_devices.yml
+

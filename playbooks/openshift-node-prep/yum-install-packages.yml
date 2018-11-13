@@ -1,0 +1,21 @@
+- hosts: nodes
+  user: root
+  tasks:
+   - name: Install supporting RPM packages
+     yum:
+       state: latest
+       name: bash-completion, bind-utils, bridge-utils, nfs-utils, docker, git, iptables-services, kexec-tools, net-tools, psacct, sos, wget
+
+   - name: Install Gluster packages
+     yum:
+       state: latest
+       name: glusterfs-fuse
+
+- hosts: masters
+  user: root
+  tasks:
+   - name: Install packages for Openshift masters
+     yum:
+       state: latest
+       name: atomic-openshift-utils, openldap-clients
+

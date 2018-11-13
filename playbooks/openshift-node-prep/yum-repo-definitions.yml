@@ -1,0 +1,24 @@
+- hosts: nodes
+  user: root
+  tasks:
+   - name: Define yum software repos
+     yum_repository:
+       description: "{{ item }}"
+       name: "{{ item }}"
+       baseurl: http://10.0.0.99/repos/{{ item }}
+       enabled: yes
+       gpgcheck: 0
+     with_items:
+       - rhel-7-server-rpms
+       - rhel-7-fast-datapath-rpms
+       - rhel-7-server-ansible-2.4-rpms
+       - rhel-7-server-extras-rpms
+       - rhel-7-server-ose-3.9-rpms
+       - rhel-atomic-host-rpms
+
+   - name: "Set yum exclude list"
+     ini_file:
+       path: /etc/yum.conf
+       section: main
+       option: exclude
+       value: ansible

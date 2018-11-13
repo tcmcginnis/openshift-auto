@@ -1,0 +1,13 @@
+- hosts: glusterfs
+  user: root
+  tasks:
+
+  - name: Remove Glusterfs artifacts
+    file:
+      path: '{{ item }}'
+      state: absent
+      force: yes
+    with_items:
+      - /var/lib/glusterd
+      - /var/lib/heketi
+

@@ -1,0 +1,6 @@
+# Remove Docker devices and artifacts
+
+- import_playbook: uninstall_docker_devices.yml
+
+- import_playbook: uninstall_docker_artifacts.yml
+

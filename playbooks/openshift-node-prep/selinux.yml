@@ -1,0 +1,15 @@
+- hosts: nodes
+  user: root
+  tasks:
+   - name: Force selinux relabeling at next reboot
+     file:
+       path: /.autorelabel
+       state: touch
+     when: ansible_selinux.status == "disabled"
+
+   - name: Set selinux to enforcing
+     selinux:
+       policy: targeting
+       state: enforcing
+     when: ansible_selinux.status == "disabled"
+

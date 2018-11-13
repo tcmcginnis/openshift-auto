@@ -1,0 +1,21 @@
+- hosts: glusterfs
+  user: root
+  tasks:
+
+  - name: Determine volume group for Gluster storage
+    shell: "vgs --noheadings | grep vg_ | head -1 | awk '{print $1}'"
+    register: VGRESULTS
+    when: gluster_storage_device is defined
+
+  - name: Remove Gluster volume group
+    lvg:
+      vg: "{{ VGRESULTS }}"
+      state: absent
+      force: yes
+    when: VGRESULTS != "" and gluster_storage_device is defined
+
+  - name: Wipe the signature off the Gluster disk device
+    command: 'dd if=/dev/zero of={{ gluster_storage_device }} count=1M'
+    when: gluster_storage_device != ""
+    register: out
+

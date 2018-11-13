@@ -1,0 +1,8 @@
+- hosts: nodes
+  user: root
+  tasks:
+   - name: Upgrade all RHEL packages (may take a while)
+     yum:
+       state: latest
+       name: '*'
+

@@ -1,0 +1,21 @@
+# Hanging dm devices will make re-install fail
+#
+
+[root@gluster1 ~]# dmsetup ls|grep ^vg_|awk '{print $1}'
+vg_2dcb2b36102c8b30d7c894a20e93b9bd-tp_9ac397dd9559409f9583e5bb207c482e-tpool
+vg_2dcb2b36102c8b30d7c894a20e93b9bd-tp_9ac397dd9559409f9583e5bb207c482e_tdata
+vg_2dcb2b36102c8b30d7c894a20e93b9bd-tp_9ac397dd9559409f9583e5bb207c482e_tmeta
+vg_2dcb2b36102c8b30d7c894a20e93b9bd-brick_8db1919b4006864e5213393b606e9d8a
+vg_2dcb2b36102c8b30d7c894a20e93b9bd-tp_9ac397dd9559409f9583e5bb207c482e
+[root@gluster1 ~]# dmsetup ls|grep ^vg_|awk '{print $1}'|xargs -l1 dmsetup remove
+device-mapper: remove ioctl on vg_2dcb2b36102c8b30d7c894a20e93b9bd-tp_9ac397dd9559409f9583e5bb207c482e-tpool  failed: Device or resource busy
+Command failed.
+device-mapper: remove ioctl on vg_2dcb2b36102c8b30d7c894a20e93b9bd-tp_9ac397dd9559409f9583e5bb207c482e_tdata  failed: Device or resource busy
+Command failed.
+device-mapper: remove ioctl on vg_2dcb2b36102c8b30d7c894a20e93b9bd-tp_9ac397dd9559409f9583e5bb207c482e_tmeta  failed: Device or resource busy
+Command failed.
+[root@gluster1 ~]# vgs
+  VG        #PV #LV #SN Attr   VSize   VFree
+  docker-vg   1   1   0 wz--n- <25.00g 204.00m
+  rhel        1   2   0 wz--n- <15.00g      0
+
