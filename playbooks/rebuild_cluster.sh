@@ -2,6 +2,7 @@
 
 FIRSTMASTER=master1
 
+cd `dirname $0`
 
 date
 set -x
