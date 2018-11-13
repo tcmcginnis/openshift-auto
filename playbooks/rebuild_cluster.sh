@@ -1,4 +1,7 @@
 #/bin/sh
+#
+# T.McGinnis 10/2018
+#
 
 FIRSTMASTER=master1
 
