@@ -1,6 +1,8 @@
 tag="v3.9.14"
 tag="v3.9.43"
 tag2="v3.9"
+tag="v3.10.66"
+tag2="v3.10"
 LOCALREG="kickstart.mclabs.us:5000"
 function pull {
    itag=$*
