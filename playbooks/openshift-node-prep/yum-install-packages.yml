@@ -17,5 +17,5 @@
    - name: Install packages for Openshift masters
      yum:
        state: latest
-       name: atomic-openshift-utils, openldap-clients
+       name: openshift-ansible, openldap-clients
 

@@ -1,6 +1,11 @@
 - hosts: nodes
   user: root
   tasks:
+   - name: Remove all unneeded repo definitions
+     shell: rm -f /etc/yum.repos.d/rhel-7* /etc/yum.repos.d/rhel-atomic*
+     args:
+       warn: false
+
    - name: Define yum software repos
      yum_repository:
        description: "{{ item }}"
