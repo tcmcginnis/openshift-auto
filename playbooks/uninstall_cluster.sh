@@ -12,13 +12,13 @@ set -x
 ssh $FIRSTMASTER ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/adhoc/uninstall.yml
 
 date
+ansible-playbook uninstall/yum-uninstall-packages.yml
 ansible-playbook uninstall/uninstall_devices.yml
 
 date
 ansible nodes -m shell -a 'shutdown -r 0'
 
 # Wait for all nodes to become available
-# set +x
 date
 sleep 15
 while true
@@ -40,7 +40,6 @@ do
 done
 
 date
-set -x
 ansible-playbook uninstall/uninstall_artifacts.yml
 
 date
