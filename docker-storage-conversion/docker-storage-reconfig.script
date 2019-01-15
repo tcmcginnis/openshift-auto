@@ -1,0 +1,36 @@
+#!/bin/bash
+set -x
+systemctl disable atomic-openshift-node
+systemctl stop atomic-openshift-node
+
+
+# Cleanup images
+systemctl restart docker
+docker ps -q -f status=exited | xargs -l1 docker rm
+docker images|grep '<none>'|awk '{print $3}'|xargs -l1 docker rmi
+
+# Here is where we would run imagesave.sh
+
+systemctl stop docker
+
+lvremove -f /dev/docker-vg/docker-pool
+lvcreate -l 100%FREE -n lvcontainer docker-vg
+mkfs.xfs /dev/docker-vg/lvcontainer
+grep "^/dev/mapper/docker--vg-lvcontainer" /etc/fstab || echo "/dev/mapper/docker--vg-lvcontainer      /var/lib/docker xfs     defaults        0 0" >>/etc/fstab
+mount /var/lib/docker
+
+
+echo "STORAGE_DRIVER=overlay2" >/etc/sysconfig/docker-storage-setup
+test -f /etc/sysconfig/docker-storage.LVM || mv /etc/sysconfig/docker-storage /etc/sysconfig/docker-storage.LVM
+rm -f /etc/sysconfig/docker-storage
+
+systemctl enable docker
+systemctl start docker
+
+# Restore images from temp space (tbd)
+/images/imageload.sh
+
+systemctl enable atomic-openshift-node
+
+shutdown -r 0
+

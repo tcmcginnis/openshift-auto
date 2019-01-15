@@ -70,4 +70,8 @@ registry.access.redhat.com/rhgs3/rhgs-server-rhel7:<tag>
 registry.access.redhat.com/rhgs3/rhgs-volmanager-rhel7:<tag>
 registry.access.redhat.com/rhgs3/rhgs-gluster-block-prov-rhel7:<tag>
 registry.access.redhat.com/rhgs3/rhgs-s3-server-rhel7:<tag>
+registry.access.redhat.com/rhgs3/rhgs-server-rhel7:latest
+registry.access.redhat.com/rhgs3/rhgs-volmanager-rhel7:latest
+registry.access.redhat.com/rhgs3/rhgs-gluster-block-prov-rhel7:latest
+registry.access.redhat.com/rhgs3/rhgs-s3-server-rhel7:latest
 #
