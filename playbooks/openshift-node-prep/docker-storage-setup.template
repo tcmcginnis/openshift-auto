@@ -1,3 +1,1 @@
-WIPE_SIGNATURES=true
-DEVS={{ docker_storage_device }}
-VG=docker-vg
+STORAGE_DRIVER=overlay2
