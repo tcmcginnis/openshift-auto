@@ -5,4 +5,5 @@
      yum:
        state: latest
        name: '*'
+     when: PERFORM_RHEL_UPGRADE | default(false) | bool
 
