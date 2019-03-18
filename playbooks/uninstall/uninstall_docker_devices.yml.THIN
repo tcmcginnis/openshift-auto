@@ -13,9 +13,11 @@
       vg: docker-vg
       state: absent
       force: yes
+    when: DOCKER_IMAGE_WIPE | default(false) | bool
 
   - name: Wipe the signature off the Docker disk device
     command: 'dd if=/dev/zero of={{ docker_storage_device }} count=1M'
     when: docker_storage_device != ""
     register: out
+    when: DOCKER_IMAGE_WIPE | default(false) | bool
 

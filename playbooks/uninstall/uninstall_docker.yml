@@ -1,6 +1,9 @@
 # Remove Docker devices and artifacts
 
 - import_playbook: uninstall_docker_devices.yml
+  when: DOCKER_IMAGE_WIPE | default(false) | bool
+
 
 - import_playbook: uninstall_docker_artifacts.yml
+  when: DOCKER_IMAGE_WIPE | default(false) | bool
 

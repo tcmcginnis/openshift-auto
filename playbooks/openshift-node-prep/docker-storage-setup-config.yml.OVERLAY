@@ -1,0 +1,49 @@
+- hosts: nodes
+  user: root
+  vars:
+    lvmpart: '{{ docker_storage_device }}1'
+    vgname: "docker-vg"
+    lvname: "lvcontainer"
+
+  tasks:
+   - name: Generate Docker Storage specification file
+     template:
+       src: docker-storage-setup.template
+       dest: /etc/sysconfig/docker-storage-setup
+
+   - name: Disable Docker
+     systemd:
+       name: docker
+       state: stopped
+       enabled: false
+ 
+   - name: Partition {{ docker_storage_device }}
+     command: parted {{ docker_storage_device }} --script mklabel msdos mkpart primary 0% 100% set 1 lvm
+     when: docker_storage_device is defined
+ 
+   - name: Define Docker storage volume group
+     lvg:
+       vg: docker-vg
+       state: present
+       pvs: '{{ lvmpart }}'
+ 
+   - name: Define Docker Logical volume
+     lvol:
+       lv: lvcontainer
+       vg: docker-vg
+       size: 100%FREE
+       state: present
+ 
+   - name: Create Container filesystem
+     filesystem:
+       fstype: xfs
+       dev: /dev/{{ vgname }}/{{ lvname }}
+ 
+   - name: Mount Docker filesystem
+     mount:
+       path: /var/lib/docker
+       src: /dev/{{ vgname }}/{{ lvname }}
+       fstype: xfs
+       opts: noatime
+       state: mounted
+

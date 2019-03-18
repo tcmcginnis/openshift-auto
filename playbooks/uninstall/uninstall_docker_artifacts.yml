@@ -18,4 +18,5 @@
       - /var/lib/docker
       - /var/lib/dockershim
       - /var/lib/containers
+    when: DOCKER_IMAGE_WIPE | default(false) | bool
 

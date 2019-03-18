@@ -19,6 +19,7 @@ mkfs.xfs /dev/docker-vg/lvcontainer
 grep "^/dev/mapper/docker--vg-lvcontainer" /etc/fstab || echo "/dev/mapper/docker--vg-lvcontainer      /var/lib/docker xfs     defaults        0 0" >>/etc/fstab
 mount /var/lib/docker
 
+restorecon -R /var/lib/docker
 
 echo "STORAGE_DRIVER=overlay2" >/etc/sysconfig/docker-storage-setup
 test -f /etc/sysconfig/docker-storage.LVM || mv /etc/sysconfig/docker-storage /etc/sysconfig/docker-storage.LVM
