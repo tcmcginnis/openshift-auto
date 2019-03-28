@@ -3,9 +3,11 @@
 #     To be run after the Openshift uninstall playbooks
 #
 
-- import_playbook: uninstall_devices.yml
+- import_playbook: yum-uninstall-packages.yml
 
-- import_playbook: uninstall_artifacts.yml
+- import_playbook: uninstall_docker.yml
+
+- import_playbook: uninstall_gluster.yml
 
 - import_playbook: rescan_disk_devices.yml
 
