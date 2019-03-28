@@ -6,4 +6,5 @@
 
    - name: Load Docker images for Openshift
      shell: /images/imageload.sh
+     when: DOCKER_IMAGE_LOAD | default(false) | bool
 

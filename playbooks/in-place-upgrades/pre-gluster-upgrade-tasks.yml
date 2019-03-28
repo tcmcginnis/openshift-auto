@@ -1,0 +1,17 @@
+- name: "Remove gluster daemonset label"
+  oc_label:
+    name: "{{ inventory_hostname }}"
+    state: absent
+    kind: node
+    labels:
+    - key: glusterfs
+  delegate_to: "{{ groups.oo_first_master.0 }}"
+- name: "Add upgrade label"
+  oc_label:
+    name: "{{ inventory_hostname }}"
+    state: add
+    kind: node
+    labels:
+    - key: upgrade
+      value: "true"
+  delegate_to: "{{ groups.oo_first_master.0 }}"

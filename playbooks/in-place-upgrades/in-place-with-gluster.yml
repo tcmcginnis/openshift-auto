@@ -1,0 +1,7 @@
+# upgrade gluster hosts last.  Starting in 3.9.41, openshift-ansible contains cluster health check following the node upgrade.
+- import_playbook: /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/upgrades/{{ upgrade_version }}/upgrade_nodes.yml
+  vars:
+    openshift_upgrade_nodes_label: glusterfs=storage-host
+    openshift_node_upgrade_pre_hook: "pre-gluster-upgrade-tasks.yml"
+    openshift_node_upgrade_post_hook: "post-gluster-upgrade-tasks.yml"
+
