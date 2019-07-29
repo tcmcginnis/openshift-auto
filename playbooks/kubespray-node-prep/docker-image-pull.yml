@@ -1,6 +1,6 @@
 - import_playbook: docker-service-enable.yml
 
-- hosts: nodes
+- hosts: all
   user: root
   tasks:
 

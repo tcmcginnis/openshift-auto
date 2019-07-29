@@ -1,0 +1,13 @@
+- hosts: all
+  user: root
+  tasks:
+   - name: Install supporting RPM packages
+     yum:
+       state: latest
+       name: bash-completion, bind-utils, bridge-utils, nfs-utils, git, iptables-services, kexec-tools, net-tools, psacct, sos, wget
+
+   - name: Install Docker if not already present
+     yum:
+       state: present
+       name: docker
+
