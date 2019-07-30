@@ -9,5 +9,5 @@
    - name: Install Docker if not already present
      yum:
        state: present
-       name: docker
+       name: docker-ce
 

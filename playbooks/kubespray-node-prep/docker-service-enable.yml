@@ -1,4 +1,4 @@
-- hosts: nodes
+- hosts: all
   user: root
   tasks:
    - name: Enable and start Docker service

@@ -4,7 +4,13 @@
   user: root
   tasks:
 
-   - name: Load Docker images for Openshift
+   - name: Mount Image share
+     command: mount /images
+     ignore_errors: yes
+     args:
+       warn: no
+
+   - name: Load Docker images for Kubespray
      shell: /images//images_{{ IMAGE_VERSION }}/imageload.sh
-     when: DOCKER_IMAGE_LOAD | default(false) | bool
+     # when: DOCKER_IMAGE_LOAD | default(false) | bool
 
