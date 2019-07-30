@@ -1,0 +1,21 @@
+# Main Openshift node prep playbook
+#
+#     To be run prior to the Openshift deployment playbooks
+#
+
+#- import_playbook: yum-repo-definitions.yml
+
+- import_playbook: yum-install-packages.yml
+
+#- import_playbook: selinux.yml
+
+#- import_playbook: docker-storage-setup-config.yml
+
+- import_playbook: docker-service-enable.yml
+
+#- import_playbook: yum-upgrade.yml
+
+- import_playbook: docker-image-pull.yml
+
+- import_playbook: firewall-service-stop.yml
+

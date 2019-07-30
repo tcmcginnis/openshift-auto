@@ -1,0 +1,8 @@
+- hosts: all
+  user: root
+  tasks:
+   - name: Stop firewalld
+     systemd:
+       name: firewalld
+       state: stopped
+
