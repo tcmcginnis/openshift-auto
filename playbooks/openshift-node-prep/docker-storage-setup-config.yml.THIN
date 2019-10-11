@@ -1,0 +1,13 @@
+- hosts: nodes
+  user: root
+  tasks:
+   - name: Generate Docker Storage specification file
+     template:
+       src: docker-storage-setup.template
+       dest: /etc/sysconfig/docker-storage-setup
+
+   - name: Run Docker Storage setup "/usr/bin/docker-storage-setup"
+     command: /usr/bin/docker-storage-setup
+     register: output
+   - debug: var=output.stdout_lines
+

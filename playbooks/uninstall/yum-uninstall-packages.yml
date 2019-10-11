@@ -1,0 +1,8 @@
+- hosts: masters
+  user: root
+  tasks:
+   - name: Remove packages for Openshift masters
+     yum:
+       state: absent
+       name: openshift-ansible
+

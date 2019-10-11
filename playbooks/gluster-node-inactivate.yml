@@ -1,0 +1,13 @@
+- hosts: glusterfs
+  user: root
+  tasks:
+   - name: Remove gluster daemonset label
+     oc_label:
+       name: "{{ inventory_hostname }}"
+       state: absent
+       kind: node
+       labels:
+       - glusterfs
+     delegate_to: "{{ groups_oo_first_master0 }}"
+
+
