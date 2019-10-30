@@ -4,6 +4,13 @@
   user: root
   tasks:
 
+   - name: Mount Image share
+     command: mount /images
+     ignore_errors: yes
+     no_log: True
+     args:
+       warn: no
+
    - name: Load Docker images for Openshift
      shell: /images//images_{{ IMAGE_VERSION }}/imageload.sh
      when: DOCKER_IMAGE_LOAD | default(false) | bool
