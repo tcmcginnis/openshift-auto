@@ -12,6 +12,6 @@
        warn: no
 
    - name: Load Docker images for Openshift
-     shell: /images//images_{{ IMAGE_VERSION }}/imageload.sh
+     shell: /images//images_{{ OSE_IMAGE_VERSION }}/imageload.sh
      when: DOCKER_IMAGE_LOAD | default(false) | bool
 
