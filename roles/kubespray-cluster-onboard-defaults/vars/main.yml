@@ -1,2 +1,4 @@
 ---
 # vars file for kubespray-cluster-onboard-defaults
+INVENTORY_FILE: "{{ INVENTORY_PATH }}/hosts-{{ CLUSTERNAME }}.yaml"
+INVENTORY_GROUPS_FILE: "{{ INVENTORY_PATH }}/hosts-{{ CLUSTERNAME }}-groups.yaml"
