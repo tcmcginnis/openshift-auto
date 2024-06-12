@@ -1,0 +1,11 @@
+
+
+- name: Add the group var definitions to inventory
+  ansible.builtin.blockinfile:
+    path: /tmp/inventory_stock.yaml
+    marker_begin: "Custom group variables - BEGIN"
+    marker_end: "Custom group variables - END"
+    block: "{{ item }}"
+  with_items:
+    - "{{lookup('ansible.builtin.file', '/tmp/inventory_groups.yaml') }}"
+

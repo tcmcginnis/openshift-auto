@@ -5,3 +5,7 @@
     msg: System {{ inventory_hostname }} Ansible version {{ ansible_version.string }}
 
 - import_tasks: remove_section.yml
+
+- import_tasks: generate_groups.yml
+
+- import_tasks: add_groups_to_inventory.yml

@@ -1,18 +1,16 @@
-#- name: Remove k8scluster section
-#  lineinfile: path=/tmp/inventory_stock.yaml
-#              state=absent 
-#              regexp='k8s-cluster [*]'
 
+- name: Remove the group var definitions from inventory
+  ansible.builtin.blockinfile:
+    path: /tmp/inventory_stock.yaml
+    state: absent
+    marker_begin: "Custom group variables - BEGIN"
+    marker_end: "Custom group variables - END"
+    block: ""
 
 - name: Remove k8scluster section
   ansible.builtin.replace:
     path: /tmp/inventory_stock.yaml
-#    after: 'k8s-cluster [*]'
-#    regexp: '^(.+)$'
-#    regexp: ((k8s-cluster:)[\S\s]*|$)
     regexp: '^\s*k8s-cluster:[\S\s]*$'
-#    regexp: '^\s*k8s-cluster:.*$'
 
-#- replace:
-#        path: /tmp/test.yaml
-#        regexp: '^\s*control_center_basic_users:[\S\s]*$'
+
+
