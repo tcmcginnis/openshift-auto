@@ -4,7 +4,7 @@
         kube-node:
         20-{{ COMPANYNAME }}-defaults:
         40-app-{{ APPNAME }}:
-        60-app-{{ APPNAME }}_{{ DOMAIN }}:
+        60-app-{{ APPNAME }}-{{ DOMAIN }}:
         80-cluster_{{ CLUSTERNAME }}:
     20-{{ COMPANYNAME }}-defaults:
       children:
@@ -14,7 +14,7 @@
       children:
         kube-master:
         kube-node:
-    60-app-{{ APPNAME }}_{{ DOMAIN }}:
+    60-app-{{ APPNAME }}-{{ DOMAIN }}:
       children:
         kube-master:
         kube-node:
