@@ -1,6 +1,11 @@
 ---
 # defaults file for kubespray-cluster-onboard
-COMPANYNAME: AcmeUSA
-APPNAME: Applicaton123
-DOMAIN: dev
-CLUSTERNAME: unnamedcluster
+#COMPANY: AcmeUSA
+#APPNAME: Applicaton123
+#DOMAIN: dev
+#CLUSTERNAME: unnamedcluster
+#COMPANY:
+#APPNAME:
+#DOMAIN:
+#CLUSTERNAME:
+

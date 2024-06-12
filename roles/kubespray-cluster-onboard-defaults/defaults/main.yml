@@ -1,0 +1,13 @@
+---
+# defaults file for kubespray-cluster-onboard-defaults
+
+INVENTORY_PATH: /tmp/inventories
+
+COMPANY: unnamedCompany
+
+APPNAME: unnamedApp
+
+DOMAIN: dev
+
+CLUSTERNAME: unnamedcluster
+

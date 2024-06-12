@@ -2,5 +2,6 @@
   hosts: localhost
   gather_facts: False
   roles:
+    - { role: kubespray-cluster-onboard-defaults }
     - { role: kubespray-cluster-onboard }
 
