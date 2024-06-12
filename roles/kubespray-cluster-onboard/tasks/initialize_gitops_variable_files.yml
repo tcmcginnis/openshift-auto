@@ -1,0 +1,8 @@
+
+
+- name: Add Cluster GitOps default file
+  ansible.builtin.lineinfile:
+    path: "{{ INVENTORY_PATH }}/group_vars/80-cluster_{{ CLUSTERNAME }}/all.yml"
+    create: True
+    line: "# Cluster Variables for \"{{ CLUSTERNAME }}\""
+

@@ -1,6 +1,6 @@
 
 
-- name: Add the group var definitions to inventory
+- name: Add the group var definitions to inventory "{{ INVENTORY_FILE }}"
   ansible.builtin.blockinfile:
     path: "{{ INVENTORY_FILE }}"
     marker_begin: "Custom group variables - BEGIN"
@@ -9,3 +9,7 @@
   with_items:
     - "{{lookup('ansible.builtin.file', '{{ INVENTORY_GROUPS_FILE }}') }}"
 
+- name: Remove temporary group file "{{ INVENTORY_GROUPS_FILE }}"
+  ansible.builtin.file:
+    path: '{{ INVENTORY_GROUPS_FILE }}'
+    state: absent

@@ -1,5 +1,5 @@
 
-- name: Remove the group var definitions from inventory
+- name: Remove any custom group var definitions from inventory "{{ INVENTORY_FILE }}" if they exist
   ansible.builtin.blockinfile:
     path: "{{ INVENTORY_FILE }}"
     state: absent
@@ -7,7 +7,7 @@
     marker_end: "Custom group variables - END"
     block: ""
 
-- name: Remove k8scluster section
+- name: Remove k8scluster section (if exists)
   ansible.builtin.replace:
     path: "{{ INVENTORY_FILE }}"
     regexp: '^\s*k8s-cluster:[\S\s]*$'

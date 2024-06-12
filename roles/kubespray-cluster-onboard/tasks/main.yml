@@ -20,4 +20,6 @@
 
 - import_tasks: generate_groups.yml
 
-- import_tasks: add_groups_to_inventory.yml
+- import_tasks: move_groups_to_inventory.yml
+
+- import_tasks: initialize_gitops_variable_files.yml
