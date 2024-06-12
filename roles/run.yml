@@ -1,0 +1,6 @@
+- name: run role
+  hosts: localhost
+  gather_facts: False
+  roles:
+    - { role: kubespray-cluster-onboard }
+

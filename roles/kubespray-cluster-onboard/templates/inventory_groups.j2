@@ -1,0 +1,24 @@
+    k8s-cluster:
+      children:
+        kube-master:
+        kube-node:
+        20-{{ COMPANYNAME }}-defaults:
+        40-app-{{ APPNAME }}:
+        60-app-{{ APPNAME }}_{{ DOMAIN }}:
+        80-cluster_{{ CLUSTERNAME }}:
+    20-{{ COMPANYNAME }}-defaults:
+      children:
+        kube-master:
+        kube-node:
+    40-app-{{ APPNAME }}:
+      children:
+        kube-master:
+        kube-node:
+    60-app-{{ APPNAME }}_{{ DOMAIN }}:
+      children:
+        kube-master:
+        kube-node:
+    80-cluster_{{ CLUSTERNAME }}:
+      children:
+        kube-master:
+        kube-node:

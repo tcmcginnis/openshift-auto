@@ -1,0 +1,7 @@
+---
+# tasks file for kubespray-cluster-onboard
+- name: Print the gateway for each host when defined
+  ansible.builtin.debug:
+    msg: System {{ inventory_hostname }} Ansible version {{ ansible_version.string }}
+
+- import_tasks: remove_section.yml

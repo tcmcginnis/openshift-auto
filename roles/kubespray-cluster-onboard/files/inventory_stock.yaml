@@ -1,0 +1,66 @@
+all:
+  hosts:
+    k8s-node1:
+      ansible_host: 10.100.59.25
+      ip: 10.100.59.25
+      access_ip: 10.100.59.25
+    k8s-node2:
+      ansible_host: 10.100.59.26
+      ip: 10.100.59.26
+      access_ip: 10.100.59.26
+    k8s-node3:
+      ansible_host: 10.100.59.27
+      ip: 10.100.59.27
+      access_ip: 10.100.59.27
+    k8s-node4:
+      ansible_host: 10.100.59.28
+      ip: 10.100.59.28
+      access_ip: 10.100.59.28
+    k8s-node5:
+      ansible_host: 10.100.59.29
+      ip: 10.100.59.29
+      access_ip: 10.100.59.29
+    k8s-node6:
+      ansible_host: 10.100.59.31
+      ip: 10.100.59.31
+      access_ip: 10.100.59.31
+  children:
+    kube-master:
+      hosts:
+        k8s-node1:
+        k8s-node2:
+        k8s-node3:
+    kube-node:
+      hosts:
+        k8s-node4:
+        k8s-node5:
+        k8s-node6:
+    etcd:
+      hosts:
+        k8s-node1:
+        k8s-node2:
+        k8s-node3:
+    k8s-cluster:
+      children:
+        kube-master:
+        kube-node:
+        20-COMPANY-defaults:
+        40-app-APPNAME:
+        60-app-APPNAME_DOMAIN:
+        80-cluster_CLUSTERNAME:
+    20-COMPANY-defaults:
+      children:
+        kube-master:
+        kube-node:
+    40-app-APPNAME:
+      children:
+        kube-master:
+        kube-node:
+    60-app-APPNAME_DOMAIN:
+      children:
+        kube-master:
+        kube-node:
+    80-cluster_CLUSTERNAME:
+      children:
+        kube-master:
+        kube-node:

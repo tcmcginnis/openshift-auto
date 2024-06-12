@@ -1,0 +1,6 @@
+- name: Jinja 2 template the inventory groups file
+  template:
+    src:  inventory_groups.j2
+    dest:  "/tmp/inventory_groups.yaml"
+    #dest:  "{{ yaml_directory }}/inventory_groups.yaml"
+

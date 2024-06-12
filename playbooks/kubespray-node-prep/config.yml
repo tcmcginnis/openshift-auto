@@ -15,7 +15,7 @@
 
 #- import_playbook: yum-upgrade.yml
 
-- import_playbook: docker-image-pull.yml
+#- import_playbook: docker-image-pull.yml
 
 - import_playbook: firewall-service-stop.yml
 
