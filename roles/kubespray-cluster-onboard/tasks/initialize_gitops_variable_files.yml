@@ -1,8 +1,20 @@
 
+- name: Initialize group variable directories for {{ APPNAME }}, {{ DOMAIN }} and {{ CLUSTERNAME }}
+  ansible.builtin.file:
+    path: "{{ INVENTORY_PATH }}/group_vars/{{ item }}"
+    state: directory
+    recurse: yes
+  with_items:
+    - 40-app_{{ APPNAME }}
+    - 60-app_{{ APPNAME }}_{{ DOMAIN }}
+    - 80-cluster_{{ CLUSTERNAME }}
 
-- name: Add Cluster GitOps default file
-  ansible.builtin.lineinfile:
-    path: "{{ INVENTORY_PATH }}/group_vars/80-cluster_{{ CLUSTERNAME }}/all.yml"
-    create: True
-    line: "# Cluster Variables for \"{{ CLUSTERNAME }}\""
+- name: Initialize group variable files for {{ APPNAME }}, {{ DOMAIN }} and {{ CLUSTERNAME }}
+  ansible.builtin.file:
+    path: "{{ INVENTORY_PATH }}/group_vars/{{ item }}/all.yml"
+    state: touch
+  with_items:
+    - 40-app_{{ APPNAME }}
+    - 60-app_{{ APPNAME }}_{{ DOMAIN }}
+    - 80-cluster_{{ CLUSTERNAME }}
 
