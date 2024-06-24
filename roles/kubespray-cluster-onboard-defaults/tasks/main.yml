@@ -1,2 +1,13 @@
 ---
 # tasks file for kubespray-cluster-onboard-defaults
+- name: Print cluster deployment values
+  ansible.builtin.debug:
+    msg:
+      - "CLUSTERNAME:{{ CLUSTERNAME }}"
+      - "APPNAME:{{ APPNAME }}"
+      - "DOMAIN:{{ DOMAIN }}"
+      - "INVENTORY_PATH:{{ INVENTORY_PATH }}"
+      - "INVENTORY_FILE:{{ INVENTORY_FILE }}"
+      - "INVENTORY_GROUPS_FILE:{{ INVENTORY_GROUPS_FILE }}"
+      - "COMPANY:{{ COMPANY }}"
+
