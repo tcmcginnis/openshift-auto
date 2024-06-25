@@ -1,0 +1,24 @@
+#
+# Optional k8s cluster overrides
+#  (Variables values referencing versions/releases are examples only)
+#
+# kubespray_branch: release-2.25
+# kube_version: v1.26.7
+#
+# containerd_version: 1.7.5
+# container_manager: "crio"
+#
+# maximal_ansible_version: "2.15.12"
+#
+# kube_network_plugin: calico
+# kube_network_plugin: cni
+# kube_network_plugin: kube-ovn
+# kube_network_plugin: kube-router
+# kube_proxy_mode: "iptables"
+#
+# cert_manager_enabled: false
+# cert_manager_namespace: "cert-manager"
+# helm_enabled: True
+# local_path_provisioner_enabled: True
+# metrics_server_enabled: True
+#
