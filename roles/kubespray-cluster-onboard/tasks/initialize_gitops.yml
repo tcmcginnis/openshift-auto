@@ -1,0 +1,10 @@
+
+- include_tasks: initialize_gitops_variable_file.yml
+  with_items:
+    - 20-{{ COMPANY }}-defaults
+    - 40-app_{{ APPNAME }}
+    - 60-app_{{ APPNAME }}_{{ DOMAIN }}
+    - 80-cluster_{{ CLUSTERNAME }}
+  loop_control:
+    loop_var: var_location
+

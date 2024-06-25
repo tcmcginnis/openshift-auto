@@ -1,0 +1,21 @@
+
+- name: Initialize group variable directories for {{ COMPANY }}, {{ APPNAME }}, {{ DOMAIN }} and {{ CLUSTERNAME }}
+  ansible.builtin.file:
+    path: "{{ INVENTORY_PATH }}/group_vars/{{ var_location }}"
+    state: directory
+    recurse: yes
+
+- name: Initialize group variable files for {{ COMPANY }}, {{ APPNAME }}, {{ DOMAIN }} and {{ CLUSTERNAME }}
+  ansible.builtin.file:
+    path: "{{ INVENTORY_PATH }}/group_vars/{{ var_location }}/all.yml"
+    state: touch
+
+- name: Add the variable options documentation to the group files
+  ansible.builtin.blockinfile:
+    path: "{{ INVENTORY_PATH }}/group_vars/{{ var_location }}/all.yml"
+    marker_begin: "Example override variables - BEGIN"
+    marker_end: "Example override variables - END"
+    block: "{{ item }}"
+  with_items:
+    - "{{lookup('ansible.builtin.file', 'files/config_variables.txt') }}"
+
